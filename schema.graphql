@@ -1,0 +1,41 @@
+type Assignment {
+  resource: HumanResource
+}
+
+interface Resource {
+  id: ID!
+  attributes: [Attribute!]!
+}
+
+type VehicleResource implements Resource {
+  id: ID!
+  attributes: [Attribute!]!
+  plateNumber: String!
+}
+
+type HumanResource implements Resource {
+  id: ID!
+  attributes: [Attribute!]!
+  fullName: String!
+}
+
+interface Attribute {
+  id: ID!
+}
+
+type JSONAttribute implements Attribute {
+  id: ID!
+  json: String!
+}
+
+type TextAttribute implements Attribute {
+  id: ID!
+  text: String!
+}
+
+type Query {
+  assignment: Assignment!
+  humanResource: HumanResource!
+  resource: Resource!
+  attribute: Attribute!
+}
