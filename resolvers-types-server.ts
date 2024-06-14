@@ -42,7 +42,7 @@ const nonResolverHumanResource: HumanResource = {
 
 const resolverAssignment: ResolversTypes["Assignment"] = {
   __typename: "Assignment",
-  resource: nonResolverHumanResource,
+  resource: resolverHumanResource,
 };
 
 // Type 'Omit<HumanResource, "attribute"> & { attribute: ResolverTypeWrapper<JsonAttribute | TextAttribute>[]; }' is not assignable to type 'Maybe<HumanResource>'.

@@ -136,7 +136,7 @@ export type ResolversInterfaceTypes<_RefType extends Record<string, unknown>> = 
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
-  Assignment: ResolverTypeWrapper<Assignment>;
+  Assignment: ResolverTypeWrapper<Omit<Assignment, 'resource'> & { resource: ResolversTypes['HumanResource'] }>;
   Attribute: ResolverTypeWrapper<ResolversInterfaceTypes<ResolversTypes>['Attribute']>;
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>;
   HumanResource: ResolverTypeWrapper<Omit<HumanResource, 'attributes'> & { attributes: Array<ResolversTypes['Attribute']> }>;
