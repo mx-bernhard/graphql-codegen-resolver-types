@@ -1,10 +1,39 @@
+union NonHumanResource = ToolResource | VehicleResource
+
 type Assignment {
+  id: ID!
   resource: HumanResource
+  additionalHumanResources: [HumanResource!]!
+  nonHumanResources: [NonHumanResource!]!
+}
+
+type Confirmation {
+  flatRateConfirmations: [FlatRateConfirmation!]!
+}
+
+type FlatRateConfirmation {
+  id: ID!
+  worker: Resource
+}
+
+type Operation {
+  assignment: Assignment
+  order: Order!
+  confirmation: Confirmation
+}
+
+type Order {
+  operations: [Operation!]!
 }
 
 interface Resource {
   id: ID!
   attributes: [Attribute!]!
+}
+
+type ToolResource implements Resource {
+  id: ID!
+  name: String!
 }
 
 type VehicleResource implements Resource {
@@ -34,8 +63,10 @@ type TextAttribute implements Attribute {
 }
 
 type Query {
-  assignment: Assignment!
-  humanResource: HumanResource!
-  resource: Resource!
-  attribute: Attribute!
+  getAssignment(id: ID!): Assignment
+  getOperation(id: ID!): Operation
+  getOrder(id: ID!): Order
+  getHumanResource(id: ID!): HumanResource
+  getResource(id: ID!): Resource
+  getAttribute(id: ID!): Attribute
 }

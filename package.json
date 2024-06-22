@@ -12,5 +12,9 @@
     "@graphql-codegen/typescript-resolvers": "4.1.0",
     "graphql": "16.8.1"
   },
+  "resolutions": {
+    "@graphql-codegen/typescript-resolvers": "4.2.0-alpha-20240619113651-03ef18eeeddd5c17b03561e50b3a938e9eb0a6ad",
+    "@graphql-codegen/visitor-plugin-common": "5.3.0-alpha-20240619113651-03ef18eeeddd5c17b03561e50b3a938e9eb0a6ad"
+  },
   "packageManager": "yarn@3.8.2"
 }
